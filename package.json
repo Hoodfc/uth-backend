@@ -1,0 +1,34 @@
+{
+   "name": "uth-typescript",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "@typescript-eslint/eslint-plugin": "^2.19.0",
+      "@typescript-eslint/parser": "^2.19.0",
+      "eslint-config-airbnb": "^18.0.1",
+      "eslint-config-prettier": "^6.10.0",
+      "eslint-import-resolver-typescript": "^2.0.0",
+      "eslint-plugin-import": "^2.20.1",
+      "eslint-plugin-json": "^2.0.1",
+      "eslint-plugin-jsx-a11y": "^6.2.3",
+      "eslint-plugin-prettier": "^3.1.2",
+      "eslint-plugin-react": "^7.18.3",
+      "prettier": "^1.19.1",
+      "ts-node": "3.3.0",
+      "typescript": "^3.3.3333"
+   },
+   "dependencies": {
+      "@types/graphql": "^14.5.0",
+      "eslint": "^6.8.0",
+      "graphql": "^14.6.0",
+      "pg": "^7.3.0",
+      "reflect-metadata": "^0.1.10",
+      "type-graphql": "^0.17.6",
+      "typeorm": "0.2.22"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "linting": "eslint --ext ts ."
+   }
+}
