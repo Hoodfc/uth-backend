@@ -3,10 +3,10 @@ import { ObjectType, Field, ID } from 'type-graphql';
 
 @Entity()
 @ObjectType()
-export class User {
-  @PrimaryGeneratedColumn()
+export default class User {
+  @PrimaryGeneratedColumn({ type: 'uuid' })
   @Field(ID)
-  id: number;
+  id: string;
 
   @Column()
   @Field()

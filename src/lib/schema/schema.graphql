@@ -20,7 +20,7 @@ type User {
   input type, any string (such as `"4"`) or integer (such as `4`) input value
   will be accepted as an ID.
   """
-  ID: Float!
+  ID: String!
   name: String!
   password: String!
   createdAt: DateTime!
