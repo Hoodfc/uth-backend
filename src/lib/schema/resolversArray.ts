@@ -1,3 +1,4 @@
 import BaseResolver from '../../resolver/base';
+import UserResolver from '../../resolver/user';
 
-export default [BaseResolver];
+export default [BaseResolver, UserResolver];

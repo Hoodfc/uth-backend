@@ -1,14 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity, PrimaryGeneratedColumn, Column, BaseEntity, BeforeInsert,
+} from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 @ObjectType()
-export default class User {
-  @PrimaryGeneratedColumn({ type: 'uuid' })
+export default class User extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
   @Field(ID)
-  id: string;
+  id!: string;
 
-  @Column()
+  @Column({ nullable: false, unique: true })
   @Field()
   name: string;
 
@@ -18,9 +21,16 @@ export default class User {
 
   @Column()
   @Field()
-  createdAt: Date;
+  createdAt!: Date;
 
   @Column()
   @Field()
-  updatedAt: Date;
+  updatedAt!: Date;
+
+  @BeforeInsert()
+  async beforeInsertion(): Promise<void> {
+    this.password = await bcrypt.hash(this.password, 7);
+    this.createdAt = new Date();
+    this.updatedAt = new Date();
+  }
 }
