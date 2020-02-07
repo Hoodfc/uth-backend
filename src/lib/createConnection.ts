@@ -1,6 +1,6 @@
 import * as http from 'http';
 import { ApolloServer } from 'apollo-server-express';
-import { createConnection } from 'typeorm';
+import { createConnection, getConnection } from 'typeorm';
 import * as express from 'express';
 import * as cors from 'cors';
 import buildSchema from './schema/buildSchema';
