@@ -1,9 +1,13 @@
 import * as http from 'http';
 import { ApolloServer } from 'apollo-server-express';
-import { createConnection, getConnection } from 'typeorm';
+import { createConnection } from 'typeorm';
 import * as express from 'express';
+import * as Redis from 'ioredis';
 import * as cors from 'cors';
+import createContext from './createContext';
+import { Context } from './types';
 import buildSchema from './schema/buildSchema';
+import createSession from './createSession';
 
 export default async (
   PORT: string,
@@ -14,7 +18,7 @@ export default async (
 
   // express and redis declaration
   const app = express();
-  // const redisClient = new Redis();
+  const redisClient = new Redis();
 
   // allow cors requests from client
   app.use(
@@ -25,11 +29,11 @@ export default async (
   );
 
   // create session through redis client
-  // app.use(createSession(redisClient));
+  app.use(createSession(redisClient));
 
   const server = new ApolloServer({
     schema: await buildSchema(emitSchema),
-    // context: (req: any) => createContext(req),
+    context: (req): Context => createContext(req),
   });
   server.applyMiddleware({ app });
 

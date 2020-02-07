@@ -3,6 +3,7 @@ import {
 } from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
+import { IsEmail, IsDate } from 'class-validator';
 
 @Entity()
 @ObjectType()
@@ -15,17 +16,24 @@ export default class User extends BaseEntity {
   @Field()
   name: string;
 
-  @Column()
+  @Column({ nullable: false, unique: true })
   @Field()
   password: string;
 
-  @Column()
+  @Column({ nullable: false, unique: true })
+  @IsEmail()
   @Field()
-  createdAt!: Date;
+  email: string;
 
   @Column()
+  @IsDate()
   @Field()
-  updatedAt!: Date;
+  createdAt: Date;
+
+  @Column()
+  @IsDate()
+  @Field()
+  updatedAt: Date;
 
   @BeforeInsert()
   async beforeInsertion(): Promise<void> {
