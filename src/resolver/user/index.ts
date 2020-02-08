@@ -1,11 +1,13 @@
 import {
   Resolver, Query, Mutation, Args, Arg, Ctx,
 } from 'type-graphql';
-import * as bcrypt from 'bcrypt';
+import { ApolloError } from 'apollo-server-express';
+import { Context } from '../../lib/types';
 import CreateUserArgs from './types/CreateUserArgs';
 import User from '../../database/entity/User';
-import { Context } from '../../lib/types';
-import LoginArgs from './types/LoginArgs';
+
+export const createUserError = new ApolloError('Something went wrong while creating the user');
+export const updateUserError = new ApolloError('Something went wrong while updating the user');
 
 @Resolver()
 export default class UserResolver {
@@ -16,21 +18,30 @@ export default class UserResolver {
 
   @Mutation((returns) => User)
   async createUser(@Args() { name, password, email }: CreateUserArgs): Promise<User | null> {
-    const user = await User.create({
-      name, password, email,
-    });
-    return user.save();
+    try {
+      const user = await User.create({
+        name, password, email,
+      });
+      return user.save();
+    } catch {
+      throw createUserError;
+    }
   }
 
-  @Mutation((returns) => User, { nullable: true })
-  async login(
-    @Args() { name, password }: LoginArgs,
+  @Mutation((returns) => Boolean)
+  async updateUser(
+    @Args() { name, password, email }: CreateUserArgs,
       @Ctx() ctx: Context,
-  ): Promise<User> {
-    const user = await User.findOne({ where: { name } });
-    const valid = await bcrypt.compare(password, user.password);
-    if (!valid) throw Error('non valid');
-    ctx.req.session.userId = user.id;
-    return user;
+  ): Promise<boolean> {
+    const id = ctx.req.session.userId || undefined;
+    if (!id) throw Error;
+    const user = await User.findOne({ id });
+    if (!user) throw updateUserError;
+    try {
+      await User.update({ id }, { name, password, email });
+      return true;
+    } catch {
+      throw updateUserError;
+    }
   }
 }
