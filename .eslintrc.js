@@ -31,6 +31,7 @@ module.exports = {
    ],
 
    "class-methods-use-this": "off",
+   "max-classes-per-file": "off"
   }
 
 };

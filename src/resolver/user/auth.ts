@@ -1,6 +1,6 @@
 import { ApolloError } from 'apollo-server-express';
 import {
-  Resolver, Query, Ctx, Mutation, Args,
+  Resolver, Query, Ctx, Mutation, Args, Authorized,
 } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
 import { Context } from '../../lib/types';
@@ -24,9 +24,9 @@ export default class AuthResolver {
     return user;
   }
 
+  @Authorized()
   @Query(() => User)
   async me(@Ctx() ctx: Context): Promise<User> {
-    if (!ctx.req.session.userId) throw authError;
     try {
       return User.findOneOrFail({ id: ctx.req.session.userId });
     } catch {

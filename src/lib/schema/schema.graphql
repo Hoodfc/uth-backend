@@ -16,7 +16,7 @@ type Mutation {
 
 type Query {
   hi: String!
-  users: [User!]!
+  users(take: Float!, skip: Float!): UserPaginator!
   me: User!
 }
 
@@ -32,6 +32,14 @@ type User {
   name: String!
   password: String!
   email: String!
+  role: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type UserPaginator {
+  items: [User!]!
+  total: Int!
+  hasMore: Boolean!
+  page: Int!
 }

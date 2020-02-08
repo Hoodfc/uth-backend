@@ -7,7 +7,6 @@
   "database": "uth",
   "synchronize": true,
   "logging": false,
-  "dropSchema": true,
   "entities": ["src/database/entity/**/*.ts"],
   "migrations": ["src/database/migration/**/*.ts"],
   "subscribers": ["src/database/subscriber/**/*.ts"],
