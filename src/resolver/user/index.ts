@@ -1,5 +1,5 @@
 import {
-  Resolver, Query, Mutation, Args, Arg, Ctx,
+  Resolver, Query, Mutation, Args, Ctx,
 } from 'type-graphql';
 import { ApolloError } from 'apollo-server-express';
 import { Context } from '../../lib/types';
@@ -11,12 +11,12 @@ export const updateUserError = new ApolloError('Something went wrong while updat
 
 @Resolver()
 export default class UserResolver {
-  @Query((returns) => [User])
+  @Query(() => [User])
   async users(): Promise<User[] | null > {
     return User.find();
   }
 
-  @Mutation((returns) => User)
+  @Mutation(() => User)
   async createUser(@Args() { name, password, email }: CreateUserArgs): Promise<User | null> {
     try {
       const user = await User.create({
@@ -28,7 +28,7 @@ export default class UserResolver {
     }
   }
 
-  @Mutation((returns) => Boolean)
+  @Mutation(() => Boolean)
   async updateUser(
     @Args() { name, password, email }: CreateUserArgs,
       @Ctx() ctx: Context,

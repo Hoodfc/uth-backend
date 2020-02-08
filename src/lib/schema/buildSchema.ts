@@ -4,7 +4,7 @@ import { GraphQLSchema } from 'graphql';
 
 //! glob does not work within jest environment, so I have to import every resolver manually
 import resolversArray from './resolversArray';
-// import { AuthMiddleware } from '../middleware/AuthMiddleware';
+import Auth from '../../middleware/Auth';
 
 export default async (emitSchema = false): Promise<GraphQLSchema> => {
   const schemaFilePath = emitSchema
@@ -17,7 +17,7 @@ export default async (emitSchema = false): Promise<GraphQLSchema> => {
   return buildSchema({
     resolvers: [...resolversArray],
     emitSchemaFile: schemaFilePath,
-    // authChecker: AuthMiddleware,
-    // validate: true,
+    authChecker: Auth,
+    validate: true,
   });
 };

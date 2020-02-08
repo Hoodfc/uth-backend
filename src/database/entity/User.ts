@@ -4,6 +4,7 @@ import {
 import { ObjectType, Field, ID } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
 import { IsEmail, IsDate } from 'class-validator';
+import roles from '../../lib/roles';
 
 @Entity()
 @ObjectType()
@@ -24,6 +25,10 @@ export default class User extends BaseEntity {
   @IsEmail()
   @Field()
   email: string;
+
+  @Column({ type: 'enum', enum: roles, default: roles.user })
+  @Field()
+  role: string;
 
   @Column()
   @IsDate()

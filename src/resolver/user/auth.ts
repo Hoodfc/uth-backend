@@ -11,7 +11,7 @@ export const authError: ApolloError = new ApolloError('Invalid credentials');
 
 @Resolver()
 export default class AuthResolver {
-  @Mutation((returns) => User, { nullable: true })
+  @Mutation(() => User, { nullable: true })
   async login(
     @Args() { name, password }: LoginArgs,
       @Ctx() ctx: Context,
@@ -24,7 +24,7 @@ export default class AuthResolver {
     return user;
   }
 
-  @Query((returns) => User)
+  @Query(() => User)
   async me(@Ctx() ctx: Context): Promise<User> {
     if (!ctx.req.session.userId) throw authError;
     try {
