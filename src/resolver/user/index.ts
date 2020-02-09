@@ -1,5 +1,4 @@
 import {
-  ObjectType,
   Resolver, Query, Mutation, Args, Ctx,
 } from 'type-graphql';
 
@@ -8,11 +7,7 @@ import { Context } from '../../lib/types';
 import CreateUserArgs from './types/CreateUserArgs';
 import User from '../../database/entity/User';
 import PaginationArgs from '../types/PaginationArgs';
-// import BasePaginator from '../../database/schema/BasePaginator';
 import UserPaginator from '../../database/schema/UserPaginator';
-
-// @ObjectType()
-// export class UserPaginator extends BasePaginator(User) {}
 
 
 export const createUserError = new ApolloError('Something went wrong while creating the user');

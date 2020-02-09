@@ -34,15 +34,18 @@
     "eslint": "^6.8.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "faker": "^4.1.0",
     "graphql": "^14.6.0",
     "ioredis": "^4.14.1",
     "pg": "^7.3.0",
     "reflect-metadata": "^0.1.10",
     "type-graphql": "^0.17.6",
-    "typeorm": "0.2.22"
+    "typeorm": "0.2.22",
+    "typeorm-seeding": "^1.2.0"
   },
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "linting": "eslint --ext ts ."
+    "linting": "eslint --ext ts .",
+    "seed": "rm -rf ./src/database/logs/* && ts-node ./node_modules/typeorm-seeding/dist/cli.js seed --config ./ormconfig.json"
   }
 }
