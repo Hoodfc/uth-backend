@@ -18,7 +18,6 @@ export default class User extends BaseEntity {
   name: string;
 
   @Column({ nullable: false, unique: true })
-  @Field()
   password: string;
 
   @Column({ nullable: false, unique: true })
@@ -30,12 +29,12 @@ export default class User extends BaseEntity {
   @Field()
   role: string;
 
-  @Column()
+  @Column({ default: new Date() })
   @IsDate()
   @Field()
   createdAt: Date;
 
-  @Column()
+  @Column({ default: new Date() })
   @IsDate()
   @Field()
   updatedAt: Date;
@@ -43,7 +42,5 @@ export default class User extends BaseEntity {
   @BeforeInsert()
   async beforeInsertion(): Promise<void> {
     this.password = await bcrypt.hash(this.password, 7);
-    this.createdAt = new Date();
-    this.updatedAt = new Date();
   }
 }
