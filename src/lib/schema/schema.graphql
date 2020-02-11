@@ -12,6 +12,7 @@ type Mutation {
   createUser(name: String!, password: String!, email: String!): User!
   updateUser(name: String!, password: String!, email: String!): Boolean!
   login(name: String!, password: String!): User
+  logout: Boolean!
   updateRole(name: String!, role: String!): Boolean!
 }
 

@@ -9,6 +9,7 @@ const Auth: AuthChecker<Context> = async (
   const user: User | undefined = await User.findOne({
     where: { id: context.req.session.userId },
   });
+
   // if user is not defined
   if (!user) return false;
   // if '@Authorized()', checks is only true - assuming the user is defined
