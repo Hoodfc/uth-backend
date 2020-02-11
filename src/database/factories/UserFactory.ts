@@ -1,10 +1,14 @@
 import Faker from 'faker';
 import { define } from 'typeorm-seeding';
-import { writeFileSync } from 'fs';
 import User from '../entity/User';
 import roles from '../../modules/constants/roles';
+import writeLog from '../logs/writeLog';
 
-define(User, (faker: typeof Faker) => {
+interface UserSettings {
+  role?: string;
+}
+
+define(User, (faker: typeof Faker, settings: UserSettings) => {
   const name = faker.internet.userName();
   const password = faker.internet.password();
   const email = faker.internet.email(name);
@@ -15,7 +19,12 @@ define(User, (faker: typeof Faker) => {
   user.email = email;
   const roleIdx = Math.floor(Math.random() * 3);
   const rolesArr = [roles.user, roles.admin, roles.author];
-  user.role = rolesArr[roleIdx];
-  writeFileSync('src/database/logs/users.txt', `user: ${user.name}, password: ${password}, email: ${email}, role: ${user.role} \n`, { flag: 'as' });
+  if (settings && settings.role) {
+    user.role = settings.role;
+  } else {
+    user.role = rolesArr[roleIdx];
+  }
+  // user.role = settings.role || rolesArr[roleIdx];
+  writeLog('user', `user: ${user.name}, password: ${password}, email: ${email}, role: ${user.role} \n`);
   return user;
 });

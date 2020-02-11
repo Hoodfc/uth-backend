@@ -1,0 +1,11 @@
+user: Dante55, password: KwEUINEEN4q9pa5, email: Dante5562@yahoo.com, role: author 
+user: Blair_OConnell, password: VONaKIUcf24xwDc, email: Blair_OConnell34@yahoo.com, role: user 
+user: Brandyn_Sipes2, password: jgWcV6aygsDbqpj, email: Brandyn_Sipes2.Kirlin@hotmail.com, role: admin 
+user: Amina69, password: 31vRtdhaig6xaeN, email: Amina6921@gmail.com, role: admin 
+user: Karianne.Little, password: 5XRWhfWXCgvrZwT, email: Karianne.Little44@yahoo.com, role: user 
+user: Clotilde.Grady40, password: ObctUpBodK1_VyC, email: Clotilde.Grady40_Hilll@yahoo.com, role: user 
+user: Howell8, password: vbdEnTSKggJL2sg, email: Howell8.Lehner@gmail.com, role: admin 
+user: Brandi8, password: f4iU_KyUEVKcSeJ, email: Brandi859@gmail.com, role: admin 
+user: Betty.Quitzon, password: ZwqVmR285BOveVL, email: Betty.Quitzon.Beahan33@hotmail.com, role: admin 
+user: Adonis.Wilkinson86, password: YNdUMcWiOLM_C5A, email: Adonis.Wilkinson86_Gorczany@yahoo.com, role: user 
+user: Marquise_Satterfield, password: ii4QL2HrWF_2O6v, email: Marquise_Satterfield.Halvorson@yahoo.com, role: user 

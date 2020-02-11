@@ -50,6 +50,6 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "linting": "eslint --ext ts .",
-    "seed": "rm -rf ./src/database/logs/* && ts-node ./node_modules/typeorm-seeding/dist/cli.js seed --config ./ormconfig.json"
+    "seed": "rm -rf ./src/database/logs/*.txt && ts-node ./node_modules/typeorm-seeding/dist/cli.js seed --config ./ormconfig.json"
   }
 }
