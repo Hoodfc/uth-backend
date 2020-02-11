@@ -1,10 +1,10 @@
-user: Ismael.Kihn, password: DBJwdv8FVi0No6r, email: Ismael.Kihn60@yahoo.com 
-user: Moshe_Labadie, password: DYImKSuufQX3oV5, email: Moshe_Labadie_Kuhlman87@yahoo.com 
-user: Dayton.Hirthe, password: E2yydOEOC_uOoee, email: Dayton.Hirthe_Eichmann39@yahoo.com 
-user: Alanis_Zemlak7, password: oJkCptFLMUfj2r6, email: Alanis_Zemlak757@hotmail.com 
-user: Sandrine_Balistreri, password: 50ecHb04ftTFA9_, email: Sandrine_Balistreri.Rau31@gmail.com 
-user: Mazie22, password: qkJDCcqs_qi6md3, email: Mazie2264@yahoo.com 
-user: Floyd.Moen47, password: 9ykr2Ug2J85cVre, email: Floyd.Moen47.Bernier@yahoo.com 
-user: Penelope94, password: 17JqKuHME1ztn5A, email: Penelope94_Ondricka@yahoo.com 
-user: Polly_Mayer43, password: iqGjK9Y9oO0T_oo, email: Polly_Mayer43.Schultz36@hotmail.com 
-user: Rudy.Waelchi50, password: qWD9KA5WuE1yePE, email: Rudy.Waelchi50_Kling98@yahoo.com 
+user: Sarina_Lindgren15, password: rVUtKEaoee5SiM5, email: Sarina_Lindgren1522@yahoo.com, role: admin 
+user: Verda_Leannon4, password: mWLYBsC51BAFw1E, email: Verda_Leannon4_Daugherty86@hotmail.com, role: admin 
+user: Liana.Cremin27, password: aqKcE7tDSpWt3HI, email: Liana.Cremin27.Schimmel@gmail.com, role: author 
+user: Autumn.Pfannerstill43, password: AlGEWcU_wLZ_MOm, email: Autumn.Pfannerstill43_Boyer@hotmail.com, role: user 
+user: Adah22, password: bFVYd52gEVDncIK, email: Adah22.Dibbert57@yahoo.com, role: author 
+user: Faustino.Kunze2, password: ugkaGbSCht2tmiS, email: Faustino.Kunze2.Wolf72@yahoo.com, role: admin 
+user: Kenyon52, password: yDJYoqWuu542bni, email: Kenyon52_Mitchell83@yahoo.com, role: user 
+user: Jerrod_Ruecker, password: Il2Mqw7cy2F3Hyd, email: Jerrod_Ruecker76@hotmail.com, role: user 
+user: Emory2, password: 18ODDcjvJea4r4u, email: Emory274@hotmail.com, role: admin 
+user: Rodolfo.Klocko44, password: exHJresWIgidUUj, email: Rodolfo.Klocko4475@gmail.com, role: user 
