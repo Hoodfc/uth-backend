@@ -3,7 +3,7 @@ import {
 } from 'type-graphql';
 
 import { ApolloError } from 'apollo-server-express';
-import { Context } from '../../lib/types';
+import Context from '../../modules/types/Context';
 import CreateUserArgs from './types/CreateUserArgs';
 import User from '../../database/entity/User';
 import PaginationArgs from '../types/PaginationArgs';

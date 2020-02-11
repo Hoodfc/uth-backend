@@ -1,7 +1,7 @@
 import {
   Resolver, Authorized, Mutation, Args,
 } from 'type-graphql';
-import roles from '../../lib/roles';
+import roles from '../../modules/constants/roles';
 import User from '../../database/entity/User';
 import UpdateRoleArgs from './types/UpdateRoleArgs';
 

@@ -3,7 +3,7 @@ import {
   Resolver, Query, Ctx, Mutation, Args, Authorized,
 } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
-import { Context } from '../../lib/types';
+import Context from '../../modules/types/Context';
 import User from '../../database/entity/User';
 import LoginArgs from './types/LoginArgs';
 

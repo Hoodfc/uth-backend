@@ -4,10 +4,10 @@ import { createConnection } from 'typeorm';
 import * as express from 'express';
 import * as Redis from 'ioredis';
 import * as cors from 'cors';
-import createContext from './createContext';
-import { Context } from './types';
-import buildSchema from './schema/buildSchema';
-import createSession from './createSession';
+import context from './context';
+import Context from '../types/Context';
+import buildSchema from '../schema/buildSchema';
+import session from './session';
 
 export default async (
   PORT: string,
@@ -29,11 +29,11 @@ export default async (
   );
 
   // create session through redis client
-  app.use(createSession(redisClient));
+  app.use(session(redisClient));
 
   const server = new ApolloServer({
     schema: await buildSchema(emitSchema),
-    context: ({ req, res }): Context => createContext(req, res),
+    context: ({ req, res }): Context => context(req, res),
   });
   server.applyMiddleware({ app });
 

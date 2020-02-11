@@ -1,4 +1,4 @@
-import { Context } from './types';
+import Context from '../types/Context';
 
 const context = (req, res): Context => ({
   req,

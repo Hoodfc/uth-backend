@@ -1,6 +1,6 @@
 import { ArgsType, Field } from 'type-graphql';
 import { IsIn } from 'class-validator';
-import roles from '../../../lib/roles';
+import roles from '../../../modules/constants/roles';
 
 @ArgsType()
 export default class UpdateRoleArgs {
