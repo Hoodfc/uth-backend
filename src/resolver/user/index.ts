@@ -11,6 +11,7 @@ import User from '../../database/entity/User';
 import PaginationArgs from '../types/PaginationArgs';
 import UserPaginator from '../../database/schema/UserPaginator';
 import redis from '../../modules/server/redis';
+import pagination from '../../modules/utils/pagination';
 
 
 export const createUserError = new ApolloError('Something went wrong while creating the user');
@@ -23,12 +24,13 @@ export default class UserResolver {
   @Query(() => UserPaginator)
   async users(@Args() { take, skip }: PaginationArgs): Promise<UserPaginator> {
     const users = await User.findAndCount({ take, skip });
+    const items: User[] = [...users[0]];
     const total = users[1];
     return {
-      hasMore: (total - (skip + take)) > 0,
-      items: [...users[0]],
+      hasMore: pagination.hasMore(total, skip, take),
+      items,
       total,
-      page: (skip / take) + 1,
+      page: pagination.page(skip, take),
     };
   }
 

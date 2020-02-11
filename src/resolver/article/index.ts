@@ -8,6 +8,7 @@ import User from '../../database/entity/User';
 import Context from '../../modules/types/Context';
 import PaginationArgs from '../types/PaginationArgs';
 import ArticlePaginator from '../../database/schema/ArticlePaginator';
+import pagination from '../../modules/utils/pagination';
 
 @Resolver()
 export default class ArticleResolver {
@@ -17,10 +18,10 @@ export default class ArticleResolver {
     const items: Article[] = [...articles[0]];
     const total: number = articles[1];
     return {
-      hasMore: (total - (skip + take)) > 0,
+      hasMore: pagination.hasMore(total, skip, take),
       items,
       total,
-      page: (skip / take) + 1,
+      page: pagination.page(skip, take),
     };
   }
 
