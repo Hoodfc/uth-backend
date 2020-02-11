@@ -13,7 +13,7 @@ export default class CreateUsers implements Seeder {
       .insert()
       .into(User)
       .values([{
-        name: 'hoodfc', email: 'hoodfc@gmail.com', password, role: roles.admin, createdAt: new Date(), updatedAt: new Date(),
+        name: 'hoodfc', email: 'hoodfc@gmail.com', password, role: roles.admin,
       }])
       .execute();
   }

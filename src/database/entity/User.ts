@@ -1,10 +1,11 @@
 import {
-  Entity, PrimaryGeneratedColumn, Column, BaseEntity, BeforeInsert,
+  Entity, PrimaryGeneratedColumn, Column, BaseEntity, BeforeInsert, OneToMany,
 } from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
 import { IsEmail, IsDate } from 'class-validator';
 import roles from '../../modules/constants/roles';
+import Article from './Article';
 
 @Entity()
 @ObjectType()
@@ -28,6 +29,10 @@ export default class User extends BaseEntity {
   @Column({ type: 'enum', enum: roles, default: roles.user })
   @Field()
   role: string;
+
+  @OneToMany('Article', 'author')
+  @Field(() => [Article])
+  articles: Article[];
 
   @Column({ default: new Date() })
   @IsDate()

@@ -33,7 +33,8 @@ module.exports = {
    "class-methods-use-this": "off",
    "max-classes-per-file": "off",
   "semi": "off",
-  "@typescript-eslint/semi": ["error"] 
+  "@typescript-eslint/semi": ["error"],
+  "import/no-cycle": "off" 
   }
 
 };
