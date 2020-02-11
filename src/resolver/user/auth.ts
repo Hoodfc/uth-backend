@@ -40,8 +40,9 @@ export default class AuthResolver {
   async logout(@Ctx() ctx: Context): Promise<boolean> {
     return new Promise((res, rej) => ctx.req.session.destroy(
       (err) => {
-        if (err) rej(Error('Something went wrong'));
-        res(true);
+        if (err) return rej(Error('Something went wrong'));
+        ctx.res.clearCookie('sid');
+        return res(true);
       },
     ));
   }

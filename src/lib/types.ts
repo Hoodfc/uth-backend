@@ -1,4 +1,6 @@
-// TODO: req should be typed as express.Request, but code breaks
+import { Response, Request } from 'express';
+
 export interface Context {
-  req;
+  req: Request;
+  res: Response;
 }

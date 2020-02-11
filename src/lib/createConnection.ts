@@ -33,7 +33,7 @@ export default async (
 
   const server = new ApolloServer({
     schema: await buildSchema(emitSchema),
-    context: (req): Context => createContext(req),
+    context: ({ req, res }): Context => createContext(req, res),
   });
   server.applyMiddleware({ app });
 

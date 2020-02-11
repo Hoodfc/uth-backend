@@ -1,7 +1,8 @@
 import { Context } from './types';
 
-const context = (request): Context => ({
-  req: request.req,
+const context = (req, res): Context => ({
+  req,
+  res,
 });
 
 export default context;
