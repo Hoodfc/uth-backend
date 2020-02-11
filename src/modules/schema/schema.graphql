@@ -11,6 +11,7 @@ scalar DateTime
 type Mutation {
   createUser(name: String!, password: String!, email: String!): User!
   updateUser(name: String!, password: String!, email: String!): Boolean!
+  changePassword(password: String!, token: String!): User!
   login(name: String!, password: String!): User
   logout: Boolean!
   updateRole(name: String!, role: String!): Boolean!
@@ -20,6 +21,7 @@ type Query {
   hi: String!
   users(take: Float!, skip: Float!): UserPaginator!
   me: User!
+  forgotPassword(email: String!): Boolean!
 }
 
 type User {
